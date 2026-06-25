@@ -51,65 +51,37 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
 
   if (!images || images.length === 0) return null
 
-  const [primary, ...rest] = images
-
   return (
     <section className="mt-16 md:mt-20">
       <SectionLabel className="mb-6">{t('templates.detail.gallery')}</SectionLabel>
 
-      <div className="flex flex-col gap-4">
-        {/* Primary image — full width */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full overflow-hidden rounded-none bg-surface-container-highest border border-white/10 group cursor-zoom-in"
-          onClick={() => setSelectedIndex(0)}
-        >
-          <img
-            src={primary}
-            alt={`${templateName} — screenshot 1`}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
-            className="w-full h-auto object-cover select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.02]"
-          />
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-none pointer-events-none" />
-          <div className="absolute inset-0 z-10" onContextMenu={e => e.preventDefault()} />
-        </motion.div>
-
-        {/* Remaining images — 2-column grid */}
-        {rest.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {rest.map((src, i) => (
-              <motion.div
-                key={src}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative overflow-hidden rounded-none bg-surface-container-highest border border-white/10 group cursor-zoom-in"
-                onClick={() => setSelectedIndex(i + 1)}
-              >
-                <img
-                  src={src}
-                  alt={`${templateName} — screenshot ${i + 2}`}
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                  className="w-full h-auto object-cover select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-none pointer-events-none" />
-                <div className="absolute inset-0 z-10" onContextMenu={e => e.preventDefault()} />
-              </motion.div>
-            ))}
-          </div>
-        )}
+      <div className="columns-1 md:columns-2 xl:columns-3 gap-5 md:gap-8">
+        {images.map((src, i) => (
+          <motion.div
+            key={src}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{
+              duration: 0.6,
+              delay: (i % 2) * 0.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="relative block w-full mb-5 md:mb-8 overflow-hidden rounded-none bg-surface-container-highest border border-white/10 group cursor-zoom-in break-inside-avoid shadow-sm hover:shadow-md transition-shadow"
+            onClick={() => setSelectedIndex(i)}
+          >
+            <img
+              src={src}
+              alt={`${templateName} — screenshot ${i + 1}`}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+              className="w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-none pointer-events-none" />
+            <div className="absolute inset-0 z-10" onContextMenu={e => e.preventDefault()} />
+          </motion.div>
+        ))}
       </div>
 
       {/* Fullscreen Viewer */}

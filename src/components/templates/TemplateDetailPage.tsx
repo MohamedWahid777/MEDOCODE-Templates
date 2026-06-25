@@ -81,18 +81,6 @@ export function TemplateDetailPage() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="mb-12 md:mb-16"
           >
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              {template.category && (
-                <span className="font-mono-label text-[10px] px-3 py-1 rounded-full border border-white/10 bg-surface-variant/30 text-on-surface-variant">
-                  {template.category}
-                </span>
-              )}
-              {template.status && (
-                <span className="font-mono-label text-[10px] px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary">
-                  {t(`templates.detail.status.${template.status}`)}
-                </span>
-              )}
-            </div>
 
             <h1 className="font-display font-bold text-[36px] sm:text-[48px] md:text-[56px] leading-[1.1] tracking-tight text-primary mb-6">
               {name}
