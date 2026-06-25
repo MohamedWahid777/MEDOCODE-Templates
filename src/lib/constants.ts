@@ -312,7 +312,7 @@ export const projects: Project[] = [
     descriptionAr:
       'منصة رقمية طبية متكاملة لمركز نصيف للعلاج الطبيعي وتأهيل الأطفال، تتميز بهوية بصرية احترافية تجمع بين الطابع الطبي والتقني، مع دعم كامل للغتين العربية والإنجليزية، ووضعَي الإضاءة الداكن والفاتح، بالإضافة إلى حركات تفاعلية احترافية.',
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18next', 'HTML5 Canvas'],
-    liveUrl: 'https://nasif-center.netlify.app/',
+    liveUrl: 'https://nasif-physical-therapy-center.vercel.app/',
     githubUrl: 'https://github.com/MohamedWahid777/nasif-physical-therapy-center.git',
     imageUrl: '/photoP1.webp',
   },
