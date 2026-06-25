@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { SectionLabel } from '../ui/SectionLabel'
 
 /**
  * Hero section at the top of /templates page.
@@ -12,17 +11,6 @@ export function TemplateHero() {
   return (
     <section className="pt-36 pb-16 md:pt-44 md:pb-20 text-center">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col items-center">
-
-        {/* Eyebrow label */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <SectionLabel className="mb-6">
-            MEDOCODE / {new Date().getFullYear()}
-          </SectionLabel>
-        </motion.div>
 
         {/* Heading */}
         <motion.h1

@@ -8,6 +8,7 @@ import { getTemplateBySlug } from '../../lib/templates'
 import { SectionLabel } from '../ui/SectionLabel'
 import { TemplateGallery } from './TemplateGallery'
 import { TemplateFeatureList } from './TemplateFeatureList'
+import { TemplateDeliverables } from './TemplateDeliverables'
 import { TemplateCTA } from './TemplateCTA'
 
 export function TemplateDetailPage() {
@@ -140,6 +141,9 @@ export function TemplateDetailPage() {
 
               {/* Features List */}
               <TemplateFeatureList features={features} />
+
+              {/* Deliverables Checklist */}
+              <TemplateDeliverables />
 
               {/* Gallery */}
               <TemplateGallery images={template.galleryImages} templateName={name} />

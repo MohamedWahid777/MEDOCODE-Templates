@@ -79,7 +79,7 @@ export function buildBuyTemplateUrl(template: Template): string {
 }
 
 export function buildCustomizeTemplateUrl(template: Template): string {
-  const message = `Hello MEDOCODE,\n\nI would like to purchase and customize the following template:\n\nTemplate: ${template.name}\nAuthor: ${template.author.name}\n\nI need custom modifications. Please let me know the details.`
+  const message = `Hello MEDOCODE,\n\nI would like to purchase and customize the following template:\n\nTemplate: ${template.name}\nAuthor: ${template.author.name}\n\nI need custom modifications.`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
@@ -132,7 +132,7 @@ export const templates: Template[] = [
       'نموذج تواصل لحجز المواعيد',
       'محسّن لمحركات البحث وسريع التحميل',
     ],
-    price: '$49',
+    price: 'EGP 2,400',
     liveDemo: 'https://nasif-center.netlify.app/',
     metaTitle: 'MedCore Medical Center Template — MEDOCODE',
     metaDescription:
@@ -184,7 +184,7 @@ export const templates: Template[] = [
       'أوضاع داكن وفاتح ودافئ',
       'تصميم متجاوب بالكامل',
     ],
-    price: '$39',
+    price: 'EGP 1,900',
     liveDemo: 'https://medocode-portfolio.netlify.app/',
     metaTitle: 'DevFolio Portfolio Template — MEDOCODE',
     metaDescription:
@@ -236,7 +236,7 @@ export const templates: Template[] = [
       'تصميم متجاوب يبدأ من الجوال',
       'سريع التحميل — أصول محسّنة',
     ],
-    price: '$29',
+    price: 'EGP 1,400',
     liveDemo: 'https://wbsite-cafe.netlify.app/',
     metaTitle: 'BrewCraft Café Template — MEDOCODE',
     metaDescription:
@@ -288,7 +288,7 @@ export const templates: Template[] = [
       'قسم CTA للتوصيل السريع',
       'هيكل جاهز لتحسين محركات البحث',
     ],
-    price: '$25',
+    price: 'EGP 1,200',
     liveDemo: 'https://rurger-rush.netlify.app/',
     metaTitle: 'RushBurger Restaurant Template — MEDOCODE',
     metaDescription:
@@ -340,7 +340,7 @@ export const templates: Template[] = [
       'تصميم داكن جريء',
       'متجاوب بالكامل للجوال',
     ],
-    price: '$29',
+    price: 'EGP 1,400',
     liveDemo: 'https://gym-ironcore.netlify.app/',
     metaTitle: 'IronCore Gym Template — MEDOCODE',
     metaDescription:
@@ -392,7 +392,7 @@ export const templates: Template[] = [
       'عداد إحصائيات متحرك',
       'تصميم يبدأ بالوضع الداكن',
     ],
-    price: '$59',
+    price: 'EGP 2,900',
     liveDemo: 'https://medocode-portfolio.netlify.app/',
     metaTitle: 'Nexus SaaS & Agency Landing Template — MEDOCODE',
     metaDescription:

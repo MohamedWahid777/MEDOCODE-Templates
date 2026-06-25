@@ -11,7 +11,8 @@ interface TemplateFeatureListProps {
  * Animated checklist of included features on the template detail page.
  */
 export function TemplateFeatureList({ features }: TemplateFeatureListProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isRtl = i18n.language === 'ar'
 
   if (!features || features.length === 0) return null
 
@@ -23,7 +24,7 @@ export function TemplateFeatureList({ features }: TemplateFeatureListProps) {
         {features.map((feature, i) => (
           <motion.li
             key={feature}
-            initial={{ opacity: 0, x: -12 }}
+            initial={{ opacity: 0, x: isRtl ? 12 : -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{

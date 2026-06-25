@@ -167,9 +167,18 @@
       "technologies": "Technologies",
       "gallery": "Template Gallery",
       "buyTemplate": "Buy Template",
-      "customizeTemplate": "Customize This Template",
+      "customizeTemplate": "Purchase & Customize",
       "backToTemplates": "Back to Templates",
       "author": "Template Author",
+      "deliverables": "What You'll Receive",
+      "deliverableItems": {
+        "1": "Full Source Code",
+        "2": "Responsive Design",
+        "3": "Documentation",
+        "4": "Free Installation Guide",
+        "5": "Clean and Organized Code",
+        "6": "Future Customization Ready"
+      },
       "status": {
         "new": "New",
         "featured": "Featured",
