@@ -11,8 +11,12 @@ interface TemplateCardProps {
 }
 
 export function TemplateCard({ template, index }: TemplateCardProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isRtl = i18n.language === 'ar'
   const [isHovered, setIsHovered] = useState(false)
+
+  // Resolve localized name — fall back to English if Arabic variant is absent
+  const displayName = isRtl && template.nameAr ? template.nameAr : template.name
 
   return (
     <motion.article
@@ -32,7 +36,7 @@ export function TemplateCard({ template, index }: TemplateCardProps) {
       <div className="relative overflow-hidden aspect-[16/10] bg-surface-container-highest">
         <img
           src={template.coverImage}
-          alt={template.name}
+          alt={displayName}
           loading="lazy"
           decoding="async"
           draggable={false}
@@ -70,11 +74,11 @@ export function TemplateCard({ template, index }: TemplateCardProps) {
       <Link
         to={`/templates/${template.slug}`}
         className="flex items-center justify-between p-5 gap-4 group-hover:bg-surface-variant/20 transition-colors duration-300"
-        aria-label={`${template.name} — ${t('templates.viewDetails')}`}
+        aria-label={`${displayName} — ${t('templates.viewDetails')}`}
       >
         <div className="flex flex-col min-w-0">
           <span className="font-display text-[16px] sm:text-[18px] text-primary leading-tight truncate">
-            {template.name}
+            {displayName}
           </span>
         </div>
 
@@ -86,3 +90,4 @@ export function TemplateCard({ template, index }: TemplateCardProps) {
     </motion.article>
   )
 }
+

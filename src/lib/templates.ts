@@ -41,6 +41,8 @@ export interface Template {
   // ── Classification ────────────────────────────────────────────
   category: TemplateCategory
   tags: string[]
+  keywords?: string[]   // Extra English search keywords
+  keywordsAr?: string[] // Extra Arabic search keywords
   status?: TemplateStatus
 
   // ── Creator ───────────────────────────────────────────────────
@@ -107,6 +109,8 @@ export const templates: Template[] = [
       'قالب "مركز ناصف الطبي" هو منصة ويب متكاملة فائقة الجودة ومجهزة بالكامل للإنتاج، صُممت خصيصاً لمراكز العلاج الطبيعي، عيادات تأهيل الأطفال، والممارسات الطبية المتخصصة. تواجه العديد من المراكز الطبية صعوبة في بناء حضور رقمي يعكس كفاءتها الطبية الحقيقية، وغالباً ما تقع في فخ القوالب الجاهزة والبطيئة التي لا توحي بالثقة. يحل هذا القالب الاحترافي هذه المشكلة تماماً عبر دمج الهوية البصرية لتقنيات الطب الحديث مع لغة تصميمية تبني الثقة الفورية لدى المرضى وعائلاتهم. يتميز القالب بتصميم راقٍ يدعم ثلاثة أوضاع بصرية (الداكن، الفاتح، والدافئ)، مع تفاعلات حركية فائقة السلاسة، وواجهة رئيسية تفاعلية مدعومة بـ HTML5 Canvas. عند شراء القالب، ستحصل على الكود البرمجي الكامل الجاهز للنشر، توثيق شامل للمشروع، وبنية برمجية مرنة للغاية تتيح لك تخصيص الألوان والمحتوى والخدمات بسهولة تامة لتناسب هوية عيادتك الخاصة. يركز التصميم بشكل أساسي على تعزيز المصداقية من خلال استعراض تفصيلي للخدمات الطبية، قسم مخصص لقصص النجاح وتجارب المرضى، وهيكلية تواصل عصرية ومباشرة. وبفضل الأداء البرمجي الفائق، والدعم الكامل لثنائية اللغة (العربية والإنجليزية) مع التوافق التام للتصفح من اليمين إلى اليسار (RTL)، فإن هذا القالب يمنح عيادتك الأداة المثلى لجذب المرضى وتقديم رعاية تليق باسمك.',
     category: 'Medical',
     tags: ['medical', 'clinic', 'rehabilitation', 'healthcare', 'react', 'tailwind', 'rtl', 'multilingual', 'pediatric', 'dark-mode'],
+    keywords: ['physical therapy', 'pediatric', 'rehab', 'health center', 'children therapy', 'bilingual clinic'],
+    keywordsAr: ['علاج طبيعي', 'تأهيل', 'تأهيل أطفال', 'عيادة', 'مركز طبي', 'عيادة أطفال', 'مركز ناصف', 'صحة'],
     author: {
       name: 'MEDOCODE',
       handle: '@medocode',
@@ -174,6 +178,8 @@ export const templates: Template[] = [
       'قالب بورتفوليو أنيق وعصري مصمم لمطوري الواجهات الأمامية ومصممي UI/UX والمبدعين. يتميز بقسم Hero ثلاثي الأبعاد مدعوم بـ Spline، وحركات تمرير سلسة، وعرض مشاريع تفاعلي، وآراء العملاء، ونموذج تواصل بدون خادم. القالب المثالي لترك انطباع أول قوي وكسب المزيد من العملاء.',
     category: 'Portfolio',
     tags: ['3d', 'animated', 'dark-mode', 'bilingual', 'gsap'],
+    keywords: ['developer portfolio', 'cv website', 'personal site', 'frontend portfolio', 'creative portfolio'],
+    keywordsAr: ['بورتفوليو', 'سيرة ذاتية', 'موقع شخصي', 'مطور', 'موقع مطور', 'معرض أعمال'],
     status: 'popular',
     author: MEDOCODE_AUTHOR,
     coverImage: '/photoP2.webp',
@@ -226,6 +232,8 @@ export const templates: Template[] = [
       'قالب موقع مقهى جميل التصميم بجماليات دافئة وجذابة تتناسب تماماً مع تجربة المقهى. يتضمن قائمة تفاعلية بفئات، ونموذج حجز، وقسم قصة المقهى، وجاليري بأسلوب إنستغرام، ودعماً ثنائي اللغة، وتأثيرات تمرير سلسة. مصمم لتحويل الزوار إلى عملاء دائمين.',
     category: 'Restaurant',
     tags: ['bilingual', 'menu', 'warm-theme', 'animated', 'booking'],
+    keywords: ['cafe website', 'coffee shop', 'menu', 'restaurant booking', 'food'],
+    keywordsAr: ['مقهى', 'قهوة', 'كوفي شوب', 'قائمة طعام', 'حجز طاولة', 'مطعم'],
     status: 'new',
     author: MEDOCODE_AUTHOR,
     coverImage: '/photoP3.webp',
@@ -278,6 +286,8 @@ export const templates: Template[] = [
       'قالب موقع مطعم جريء وحيوي مصمم لعرض قائمتك وعلامتك التجارية بأكثر الطرق شهية. يتضمن Hero مع دعم خلفية الفيديو، وأقسام قائمة منظمة، وموقع وساعات العمل، ومراجعات العملاء، وهوية بصرية جريئة.',
     category: 'Restaurant',
     tags: ['bold', 'menu', 'animated', 'dark-hero', 'food'],
+    keywords: ['burger restaurant', 'fast food', 'food delivery', 'restaurant template', 'menu website'],
+    keywordsAr: ['برغر', 'وجبات سريعة', 'مطعم', 'قائمة', 'توصيل طعام', 'مطعم وجبات'],
     status: 'popular',
     author: MEDOCODE_AUTHOR,
     coverImage: '/photoP4.webp',
@@ -330,6 +340,8 @@ export const templates: Template[] = [
       'قالب موقع صالة رياضية ولياقة بدنية حيوي ومحفز مصمم لإلهام العمل والتسجيل. يتضمن قسم مقارنة خطط الأسعار، وجدول الدروس، وملفات المدربين، وقصص النجاح مع قبل/بعد، وCTA للعضوية، ودعماً ثنائي اللغة.',
     category: 'Business',
     tags: ['bold', 'bilingual', 'pricing', 'animated', 'fitness'],
+    keywords: ['gym website', 'fitness studio', 'workout', 'membership', 'training'],
+    keywordsAr: ['صالة رياضية', 'جيم', 'لياقة', 'تمرين', 'عضوية', 'فيتنس'],
     status: 'new',
     author: MEDOCODE_AUTHOR,
     coverImage: '/photoP5.webp',
@@ -382,6 +394,8 @@ export const templates: Template[] = [
       'قالب صفحة هبوط للـ SaaS والوكالات الرقمية مُركّز على التحويل بجمالية حديثة ونظيفة. يتضمن Hero المنتج مع ماكيت لوحة التحكم، وشبكة الميزات الرئيسية، والدليل الاجتماعي، وفئات الأسعار، والأسئلة الشائعة، وقسم CTA مقنع. مُصمَّم لتوليد العملاء المحتملين.',
     category: 'SaaS',
     tags: ['saas', 'agency', 'dark-mode', 'conversion', 'modern'],
+    keywords: ['saas landing page', 'startup', 'agency website', 'product page', 'lead generation'],
+    keywordsAr: ['صفحة هبوط', 'وكالة', 'منتج رقمي', 'شركة ناشئة', 'تسويق', 'برمجيات'],
     status: 'featured',
     author: MEDOCODE_AUTHOR,
     coverImage: '/photoP2.webp',
@@ -433,15 +447,31 @@ export function getSortedTemplates(): Template[] {
   )
 }
 
-/** Search templates by name, tagline, or tags */
+/** Search templates across all English and Arabic fields */
 export function searchTemplates(query: string): Template[] {
-  const q = query.toLowerCase().trim()
+  const q = query.trim()
   if (!q) return getSortedTemplates()
-  return getSortedTemplates().filter(
-    t =>
-      t.name.toLowerCase().includes(q) ||
-      t.tagline.toLowerCase().includes(q) ||
-      t.tags.some(tag => tag.toLowerCase().includes(q)) ||
-      t.category.toLowerCase().includes(q)
-  )
+
+  // Use two separate lower-cased queries:
+  // – qLower for case-insensitive Latin field matching
+  // – qRaw  for Arabic matching (no lower-casing needed for Arabic)
+  const qLower = q.toLowerCase()
+
+  return getSortedTemplates().filter(t => {
+    // ── English fields ───────────────────────────────────────
+    if (t.name.toLowerCase().includes(qLower)) return true
+    if (t.tagline.toLowerCase().includes(qLower)) return true
+    if (t.description.toLowerCase().includes(qLower)) return true
+    if (t.category.toLowerCase().includes(qLower)) return true
+    if (t.tags.some(tag => tag.toLowerCase().includes(qLower))) return true
+    if (t.keywords?.some(kw => kw.toLowerCase().includes(qLower))) return true
+
+    // ── Arabic fields ────────────────────────────────────────
+    if (t.nameAr?.includes(q)) return true
+    if (t.taglineAr?.includes(q)) return true
+    if (t.descriptionAr?.includes(q)) return true
+    if (t.keywordsAr?.some(kw => kw.includes(q))) return true
+
+    return false
+  })
 }
