@@ -31,7 +31,7 @@ export function TemplateDeliverables() {
             }}
             className="flex items-center gap-3"
           >
-            <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
+            <CheckCircle2 size={18} className="text-primary shrink-0" />
             <span className="font-sans text-[15px] text-on-surface-variant font-medium">
               {t(`templates.detail.deliverableItems.${key}`)}
             </span>

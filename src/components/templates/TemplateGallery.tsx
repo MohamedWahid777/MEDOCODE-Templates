@@ -127,7 +127,7 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
             {/* Close */}
             <button
               aria-label="Close"
-              className="absolute top-6 right-6 md:top-8 md:right-8 z-[110] text-white/70 hover:text-white transition-colors bg-white/10 p-3 rounded-full hover:bg-white/20"
+              className="absolute top-6 right-6 md:top-8 md:right-8 z-[110] text-on-surface-variant hover:text-primary transition-all bg-surface border border-outline/20 shadow-lg p-3 rounded-full hover:bg-surface-variant"
               onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
             >
               <X size={24} />
@@ -137,7 +137,7 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
             {images.length > 1 && (
               <button
                 aria-label="Previous"
-                className={`absolute top-1/2 -translate-y-1/2 z-[110] text-white/70 hover:text-white transition-colors bg-black/50 p-3 md:p-4 rounded-full hover:bg-black/80 ${isRtl ? 'right-4 md:right-8' : 'left-4 md:left-8'}`}
+                className={`absolute top-1/2 -translate-y-1/2 z-[110] text-on-surface-variant hover:text-primary transition-all bg-surface border border-outline/20 shadow-lg p-3 md:p-4 rounded-full hover:bg-surface-variant ${isRtl ? 'right-4 md:right-8' : 'left-4 md:left-8'}`}
                 onClick={(e) => {
                   e.stopPropagation()
                   if (isRtl) handleNext(); else handlePrevious()
@@ -151,7 +151,7 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
             {images.length > 1 && (
               <button
                 aria-label="Next"
-                className={`absolute top-1/2 -translate-y-1/2 z-[110] text-white/70 hover:text-white transition-colors bg-black/50 p-3 md:p-4 rounded-full hover:bg-black/80 ${isRtl ? 'left-4 md:left-8' : 'right-4 md:right-8'}`}
+                className={`absolute top-1/2 -translate-y-1/2 z-[110] text-on-surface-variant hover:text-primary transition-all bg-surface border border-outline/20 shadow-lg p-3 md:p-4 rounded-full hover:bg-surface-variant ${isRtl ? 'left-4 md:left-8' : 'right-4 md:right-8'}`}
                 onClick={(e) => {
                   e.stopPropagation()
                   if (isRtl) handlePrevious(); else handleNext()
@@ -181,7 +181,7 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
             </motion.div>
             
             {/* Image Count Indicator */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[110] text-white/60 font-mono-label text-xs tracking-widest bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[110] text-on-surface font-mono-label text-xs tracking-widest bg-surface border border-outline/20 px-4 py-2 rounded-full shadow-lg">
               {selectedIndex + 1} / {images.length}
             </div>
           </motion.div>
