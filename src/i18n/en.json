@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "letsBuild": "Let's Talk",
+    "langSwitch": "AR"
+  },
+  "hero": {
+    "firstName": "Mohamed",
+    "lastName": "Wahid",
+    "tagline": "Frontend Developer focused on crafting smooth and fast web experiences",
+    "introduction": "I turn ideas into clean, fast, and interactive web interfaces that focus on user experience.",
+    "ctaPrimary": "View My Work",
+    "ctaSecondary": "Get in Touch"
+  },
+  "intro": {
+    "highlight": "I build digital experiences",
+    "body": "that combine clean design, exceptional user experience, and scalable development practices — turning ideas into polished web products that create real value."
+  },
+  "about": {
+    "title": "About",
+    "summary": "I'm Mohamed Wahid, a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional user experience, and scalable development practices. Combining pixel-perfect development with a product-oriented mindset, I translate business goals and user needs into responsive, high-speed, and conversion-focused digital products. By integrating advanced front-end engineering with AI-powered workflows, I accelerate delivery and build clean, scalable codebases that help brands and businesses stand out online.",
+    "readBio": "Read Full Bio",
+    "bioTitle": "Full Biography",
+    "bio1": "I'm Mohamed Wahid, a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional user experience, and scalable development practices.",
+    "bio2": "Currently pursuing a degree in Computer Science, I have spent the last 3+ years developing websites and interactive web applications, continuously improving my skills in modern front-end technologies, UI/UX principles, performance optimization, and digital product development.",
+    "bio3": "My focus goes beyond writing code. I believe every successful website starts with understanding the business goals behind it. That's why I approach every project with a product mindset—analyzing requirements, identifying user needs, and transforming ideas into engaging digital experiences that create real value.",
+    "bio4": "By combining modern development practices with AI-powered workflows, I am able to accelerate development, improve quality, streamline processes, and deliver polished results efficiently while maintaining clean, maintainable, and scalable code.",
+    "bio5": "Whether it's a business website, startup landing page, portfolio, dashboard, or custom web application, my goal is always the same: create fast, responsive, user-focused experiences that help businesses and individuals stand out online.",
+    "educationTitle": "Education",
+    "education": {
+      "msc": "Computer Science",
+      "mscPeriod": "Currently Pursuing",
+      "bsc": "",
+      "bscPeriod": ""
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "End-to-end front-end solutions for businesses, startups, and ambitious brands.",
+    "items": {
+      "service1": {
+        "title": "Company, Business, Restaurant & Medical Center Websites",
+        "description": "High-performance, custom-built websites tailored for companies, local businesses, restaurants, and medical clinics to establish a strong, professional digital presence."
+      },
+      "service2": {
+        "title": "Landing Pages",
+        "description": "High-converting, visually striking landing pages engineered to capture leads, promote products, and accelerate business growth with pixel-perfect layouts."
+      },
+      "service3": {
+        "title": "Personal Portfolio Website Development",
+        "description": "Unique and premium personal portfolios showcasing your work, skills, and resume with immersive custom animations and state-of-the-art aesthetics."
+      },
+      "service4": {
+        "title": "Product & Service Showcase Websites",
+        "description": "Immersive web experiences designed to present products, software platforms, or professional services with interactive sections and engaging visual storytelling."
+      },
+      "service5": {
+        "title": "Interactive Dashboards & Management Systems",
+        "description": "Robust, fast, and feature-rich front-end management interfaces and analytics dashboards utilizing real-time data visualization and intuitive UX design."
+      }
+    }
+  },
+  "techStack": {
+    "title": "Skills & Technologies",
+    "subtitle": "Languages & Frameworks · Engineering & Practices",
+    "row1": "Languages & Frameworks",
+    "row2": "Development & Optimization"
+  },
+  "work": {
+    "title": "Selected Work",
+    "subtitle": "Real projects — from business platforms to medical digital experiences.",
+    "viewCase": "View Project",
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "readMore": "Read More",
+    "backToWork": "Back to Projects"
+  },
+  "process": {
+    "title": "Development Process",
+    "subtitle": "A systematic, product-oriented approach from first conversation to final delivery.",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "description": "Understanding your project's goals, target audience, business requirements, and user expectations through close collaboration."
+      },
+      "plan": {
+        "title": "Plan",
+        "description": "Defining a clear content structure, intuitive user flow, and a scalable design & development blueprint."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Crafting clean, modern, and accessible user interfaces focused on brand identity and high usability."
+      },
+      "develop": {
+        "title": "Develop",
+        "description": "Building a high-performance, responsive web platform using clean code architectures and modern front-end tech."
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "Thoroughly testing, optimizing for SEO and Core Web Vitals, and deploying to a production-ready environment."
+      }
+    }
+  },
+  "feedback": {
+    "title": "Client Feedback",
+    "subtitle": "What clients say about working with me."
+  },
+  "contact": {
+    "title": "Contact ",
+    "titleLine2": "me.",
+    "subtitle": "Ready for new projects. Let’s transform your idea into a meaningful digital experience.",
+    "form": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "service": "Service",
+      "budget": "Budget Range",
+      "details": "Project Details",
+      "send": "Send Message",
+      "sending": "SENDING..."
+    },
+    "availability": "Available for new projects",
+    "yourMessage": "YOUR MESSAGE",
+    "whatsapp": "WhatsApp",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "error": "Something went wrong. Please try again.",
+    "success": {
+      "title": "Message Sent!",
+      "subtitle": "Thanks for reaching out. I'll get back to you soon."
+    }
+  },
+  "footer": {
+    "tagline": "Building high-performance web experiences.",
+    "copyright": "© 2026 Mohamed Wahid. All rights reserved.",
+    "navigation": "Navigation",
+    "socials": "Socials"
+  }
+}
