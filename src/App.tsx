@@ -20,6 +20,8 @@ const ClientFeedback = React.lazy(() => import('./components/work/ClientFeedback
 const ContactSection = React.lazy(() => import('./components/contact/ContactSection').then(m => ({ default: m.ContactSection })))
 const Footer = React.lazy(() => import('./components/layout/Footer').then(m => ({ default: m.Footer })))
 const ProjectDetailPage = React.lazy(() => import('./components/work/ProjectDetailPage').then(m => ({ default: m.ProjectDetailPage })))
+const TemplatesPage = React.lazy(() => import('./components/templates/TemplatesPage').then(m => ({ default: m.TemplatesPage })))
+const TemplateDetailPage = React.lazy(() => import('./components/templates/TemplateDetailPage').then(m => ({ default: m.TemplateDetailPage })))
 
 function AppContent() {
   const { t } = useTranslation()
@@ -57,6 +59,16 @@ function AppContent() {
               <Route path="/work/:projectId" element={
                 <Suspense fallback={<div className="h-screen w-full" />}>
                   <ProjectDetailPage />
+                </Suspense>
+              } />
+              <Route path="/templates" element={
+                <Suspense fallback={<div className="h-screen w-full" />}>
+                  <TemplatesPage />
+                </Suspense>
+              } />
+              <Route path="/templates/:slug" element={
+                <Suspense fallback={<div className="h-screen w-full" />}>
+                  <TemplateDetailPage />
                 </Suspense>
               } />
             </Routes>

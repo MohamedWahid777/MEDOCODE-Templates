@@ -412,10 +412,17 @@ export const processSteps = [
   { number: '05', title: 'Launch',   icon: 'Rocket' },
 ]
 
-export const navLinks = [
-  { href: '#about',    label: 'About' },
-  { href: '#process',  label: 'Process' },
-  { href: '#services', label: 'Services' },
-  { href: '#work',     label: 'Work' },
-  { href: '#contact',  label: 'Contact' },
+// ── Navigation Links ─────────────────────────────────────────────
+// type: 'scroll' → smooth-scrolls to a hash on the homepage
+// type: 'page'   → navigates to a new route via React Router
+
+export type NavLinkType =
+  | { type: 'scroll'; href: string; label: string }
+  | { type: 'page';   href: string; label: string }
+
+export const navLinks: NavLinkType[] = [
+  { type: 'page',   href: '/',          label: 'Home' },
+  { type: 'scroll', href: '#about',     label: 'About' },
+  { type: 'scroll', href: '#work',      label: 'Projects' },
+  { type: 'page',   href: '/templates', label: 'Templates' },
 ]

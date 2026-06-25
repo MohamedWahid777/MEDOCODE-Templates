@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ArrowUp } from 'lucide-react'
@@ -90,22 +91,36 @@ export function Footer() {
           {/* RIGHT COLUMN: RESTRUCTURED LINKS & INQUIRIES (7 Columns on Desktop) */}
           <div className="lg:col-span-7 flex justify-between gap-8 sm:grid sm:grid-cols-2 lg:gap-8 relative w-full px-4 lg:px-0">
             
-            {/* Navigation Column — mirrors main navbar exactly */}
+            {/* Navigation Column — mirrors main navbar */}
             <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto flex flex-col">
               <h2 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs text-start">
                 {t('footer.navigation')}
               </h2>
               <ul className="flex flex-col justify-between h-full pb-2 gap-4">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="relative text-xs sm:text-sm text-primary font-sans font-medium py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300 after:ease-out block w-fit text-start"
-                    >
-                      {t(`nav.${link.label.toLowerCase()}`)}
-                    </a>
-                  </li>
-                ))}
+                {navLinks.map((link) => {
+                  const labelKey = (() => {
+                    const map: Record<string, string> = {
+                      Home: 'home', About: 'about', Projects: 'projects', Templates: 'templates',
+                    }
+                    return `nav.${map[link.label] ?? link.label.toLowerCase()}`
+                  })()
+                  const linkClass =
+                    'relative text-xs sm:text-sm text-primary font-sans font-medium py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300 after:ease-out block w-fit text-start'
+
+                  return (
+                    <li key={link.href}>
+                      {link.type === 'page' ? (
+                        <Link to={link.href} className={linkClass}>
+                          {t(labelKey)}
+                        </Link>
+                      ) : (
+                        <a href={link.href} className={linkClass}>
+                          {t(labelKey)}
+                        </a>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 

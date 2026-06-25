@@ -1,10 +1,14 @@
 {
   "nav": {
+    "home": "الرئيسية",
+    "about": "نبذة",
+    "projects": "المشاريع",
+    "templates": "القوالب",
     "work": "الأعمال",
     "services": "الخدمات",
     "process": "المنهجية",
-    "about": "نبذة",
     "contact": "تواصل",
+    "browseTemplates": "تصفّح القوالب",
     "letsBuild": "لنتحدث",
     "langSwitch": "EN"
   },
@@ -137,7 +141,40 @@
   },
   "footer": {
     "tagline": "أبني تجارب ويب عالية الأداء.",
-    "copyright": "© 2026 Mohamed Wahid. جميع الحقوق محفوظة."
-
+    "copyright": "© 2026 Mohamed Wahid. جميع الحقوق محفوظة.",
+    "navigation": "التنقل",
+    "socials": "التواصل الاجتماعي"
+  },
+  "templates": {
+    "pageTitle": "القوالب",
+    "pageSubtitle": "قوالب مواقع احترافية مبنية بتقنيات حديثة. جاهزة للنشر، سهلة التخصيص.",
+    "metaTitle": "القوالب — MEDOCODE",
+    "metaDescription": "تصفّح قوالب مواقع احترافية من MEDOCODE. قوالب طبية وبورتفوليو ومطاعم وSaaS مبنية بـ React وTailwind وGSAP.",
+    "searchPlaceholder": "ابحث في القوالب...",
+    "searchClear": "مسح",
+    "noResults": "لا توجد قوالب",
+    "noResultsHint": "جرّب كلمة بحث مختلفة أو تصفّح جميع القوالب.",
+    "browseAll": "تصفّح جميع القوالب",
+    "byAuthor": "بواسطة",
+    "previewTemplate": "معاينة القالب",
+    "viewDetails": "عرض التفاصيل",
+    "allTemplates": "جميع القوالب",
+    "templateCount": "{{count}} قالب متاح",
+    "detail": {
+      "startingFrom": "يبدأ من",
+      "liveDemo": "عرض مباشر",
+      "features": "ما يتضمنه القالب",
+      "technologies": "التقنيات المستخدمة",
+      "gallery": "معرض القالب",
+      "buyTemplate": "شراء القالب",
+      "customizeTemplate": "تخصيص هذا القالب",
+      "backToTemplates": "العودة إلى القوالب",
+      "author": "مطوّر القالب",
+      "status": {
+        "new": "جديد",
+        "featured": "مميز",
+        "popular": "الأكثر طلباً"
+      }
+    }
   }
 }

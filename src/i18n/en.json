@@ -1,10 +1,14 @@
 {
   "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "templates": "Templates",
     "work": "Work",
     "services": "Services",
     "process": "Process",
-    "about": "About",
     "contact": "Contact",
+    "browseTemplates": "Browse Templates",
     "letsBuild": "Let's Talk",
     "langSwitch": "AR"
   },
@@ -140,5 +144,37 @@
     "copyright": "© 2026 Mohamed Wahid. All rights reserved.",
     "navigation": "Navigation",
     "socials": "Socials"
+  },
+  "templates": {
+    "pageTitle": "Templates",
+    "pageSubtitle": "Premium website templates built with modern technologies. Ready to deploy, easy to customize.",
+    "metaTitle": "Templates — MEDOCODE",
+    "metaDescription": "Browse premium website templates by MEDOCODE. Medical, portfolio, restaurant, SaaS templates built with React, Tailwind, and GSAP.",
+    "searchPlaceholder": "Search templates...",
+    "searchClear": "Clear",
+    "noResults": "No templates found",
+    "noResultsHint": "Try a different search term or browse all templates.",
+    "browseAll": "Browse all templates",
+    "byAuthor": "by",
+    "previewTemplate": "Preview Template",
+    "viewDetails": "View Details",
+    "allTemplates": "All Templates",
+    "templateCount": "{{count}} templates available",
+    "detail": {
+      "startingFrom": "Starting From",
+      "liveDemo": "Live Demo",
+      "features": "What's Included",
+      "technologies": "Technologies",
+      "gallery": "Template Gallery",
+      "buyTemplate": "Buy Template",
+      "customizeTemplate": "Customize This Template",
+      "backToTemplates": "Back to Templates",
+      "author": "Template Author",
+      "status": {
+        "new": "New",
+        "featured": "Featured",
+        "popular": "Popular"
+      }
+    }
   }
 }

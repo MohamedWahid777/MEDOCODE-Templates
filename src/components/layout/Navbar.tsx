@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../context/ThemeContext'
@@ -14,13 +15,15 @@ export function Navbar() {
   const { t } = useTranslation()
   const { language, setLanguage, isRtl } = useLanguage()
   const { theme, setTheme } = useTheme()
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'warm' : 'dark')
     setIsMobileMenuOpen(false)
   }
 
-  // Hide/Reveal navbar based on scroll direction
+  // Hide / reveal navbar based on scroll direction
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious()
     if (previous && latest > previous && latest > 150) {
@@ -35,15 +38,48 @@ export function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  /**
+   * Smart nav click handler:
+   * - 'page' links: use React Router navigate
+   * - 'scroll' links: if on homepage scroll to section, else navigate home then scroll
+   */
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    type: 'scroll' | 'page',
+    href: string
+  ) => {
     e.preventDefault()
     setIsMobileMenuOpen(false)
-    
-    // Smooth scroll to element using standard DOM methods (Lenis intercepts this)
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
+
+    if (type === 'page') {
+      navigate(href)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
     }
+
+    // type === 'scroll'
+    if (location.pathname === '/') {
+      const target = document.querySelector(href)
+      if (target) target.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      // Navigate home, then scroll after a brief delay for route render
+      navigate('/')
+      setTimeout(() => {
+        const target = document.querySelector(href)
+        if (target) target.scrollIntoView({ behavior: 'smooth' })
+      }, 300)
+    }
+  }
+
+  /** Label key used for t() lookup */
+  const getLabelKey = (label: string) => {
+    const map: Record<string, string> = {
+      Home:      'home',
+      About:     'about',
+      Projects:  'projects',
+      Templates: 'templates',
+    }
+    return `nav.${map[label] ?? label.toLowerCase()}`
   }
 
   return (
@@ -51,20 +87,21 @@ export function Navbar() {
       <motion.div
         variants={{
           visible: { y: 0, opacity: 1 },
-          hidden: { y: '-100%', opacity: 0 }
+          hidden:  { y: '-100%', opacity: 0 },
         }}
         animate={hidden ? 'hidden' : 'visible'}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
         className="fixed top-6 left-0 right-0 w-full max-w-full z-50 flex justify-center px-margin-mobile md:px-margin-desktop pointer-events-none"
       >
         <nav className="bg-surface/60 backdrop-blur-xl border border-white/10 rounded-full w-full max-w-container-max flex justify-between items-center px-6 md:px-8 py-4 pointer-events-auto shadow-2xl">
-          <a 
-            href="#" 
-            onClick={(e) => handleNavClick(e, 'body')}
+          {/* Logo → always goes home */}
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="hover-effect"
           >
             <Logo />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -72,10 +109,10 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={(e) => handleNavClick(e, link.type, link.href)}
                 className="text-on-surface-variant hover:text-primary transition-colors font-mono-label hover-effect"
               >
-                {t(`nav.${link.label.toLowerCase()}`)}
+                {t(getLabelKey(link.label))}
               </a>
             ))}
           </div>
@@ -94,16 +131,16 @@ export function Navbar() {
             >
               {t('nav.langSwitch')}
             </button>
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+            {/* CTA: Browse Templates */}
+            <Link
+              to="/templates"
               className="hero-cta-button hidden md:block px-6 py-2 rounded-full font-mono-label hover-effect"
             >
-              {t('nav.letsBuild')}
-            </a>
-            
+              {t('nav.browseTemplates')}
+            </Link>
+
             {/* Mobile Menu Toggle */}
-            <button 
+            <button
               className="md:hidden text-primary p-2 hover-effect"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open mobile menu"
@@ -142,7 +179,7 @@ export function Navbar() {
             >
               <div className="flex justify-between items-center mb-8">
                 <Logo />
-                <button 
+                <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group"
                   aria-label="Close mobile menu"
@@ -156,14 +193,12 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
+                    onClick={(e) => handleNavClick(e, link.type, link.href)}
                     className="group relative flex items-center p-3 sm:p-4 rounded-xl border border-white/10 bg-surface-variant/30 hover:bg-surface-variant/80 hover:border-primary/30 transition-all duration-300 overflow-hidden"
                   >
-                    {/* Subtle accent highlight left border */}
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-primary group-hover:h-1/2 transition-all duration-300 rounded-r-full" />
-                    
                     <span className="text-[20px] sm:text-[24px] leading-tight font-display text-on-background group-hover:text-primary transition-colors pl-3">
-                      {t(`nav.${link.label.toLowerCase()}`)}
+                      {t(getLabelKey(link.label))}
                     </span>
                   </a>
                 ))}
@@ -192,13 +227,13 @@ export function Navbar() {
                     {language === 'en' ? 'Arabic (عربي)' : 'English Version'}
                   </span>
                 </button>
-                <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact')}
+                <Link
+                  to="/templates"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="hero-cta-button text-center px-6 py-3 rounded-xl font-mono-label tracking-widest flex justify-center items-center text-xs"
                 >
-                  {t('nav.letsBuild')}
-                </a>
+                  {t('nav.browseTemplates')}
+                </Link>
               </div>
             </motion.div>
           </>

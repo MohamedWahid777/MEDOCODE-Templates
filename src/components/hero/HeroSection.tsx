@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { HeroSpline } from './HeroSpline'
@@ -92,19 +93,19 @@ export function HeroSection() {
           {t('hero.introduction')}
         </motion.p>
 
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row gap-4 pointer-events-auto w-full sm:w-auto items-center justify-center mb-8"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 1, delay: 0.75 }}
         >
-          <a 
-            href="#work"
+          <Link
+            to="/templates"
             className="hero-cta-button px-8 py-4 rounded-full font-mono-label text-center block w-full sm:w-auto"
           >
-            {t('hero.ctaPrimary')}
-          </a>
-          <a 
+            {t('nav.browseTemplates')}
+          </Link>
+          <a
             href="#contact"
             className="border border-white/20 bg-transparent text-primary px-8 py-4 rounded-full font-mono-label text-center hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover-effect block w-full sm:w-auto"
           >
