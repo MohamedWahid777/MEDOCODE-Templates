@@ -95,10 +95,10 @@ export const templates: Template[] = [
   // 1. Medical Center Template
   // ────────────────────────────────────────────────────────────
   {
-    id: 'nassif-medical-center',
-    slug: 'nassif-medical-center',
-    name: 'MedCore — Medical Center',
-    nameAr: 'ميدكور — مركز طبي',
+    id: 'medical-center', 
+    slug: 'medical-center',
+    name: 'Template for a medical center',
+    nameAr: ' قالب لمركز طبي',
     tagline: 'Premium bilingual medical platform for clinics & rehab centers',
     taglineAr: 'منصة طبية احترافية ثنائية اللغة للعيادات ومراكز التأهيل',
     description:
