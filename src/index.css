@@ -467,3 +467,12 @@ html.lenis body {
   transform: translateY(1px);
   box-shadow: 0 2px 8px var(--hero-cta-shadow);
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Search Input Customizations
+   ══════════════════════════════════════════════════════════════ */
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}

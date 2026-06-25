@@ -74,12 +74,12 @@ export interface Template {
 const WHATSAPP_NUMBER = '201063841779'
 
 export function buildBuyTemplateUrl(template: Template): string {
-  const message = `Hello MEDOCODE,\n\nI would like to purchase the following template:\n\nTemplate: ${template.name}\nAuthor: ${template.author.name}\n\nPlease guide me through the purchase process.`
+  const message = `مرحباً Mohamed،\n\nأرغب في شراء القالب التالي:\n\nاسم القالب: ${template.name}\n\nاسم المطور: ${template.author.name}\n\nيرجى تزويدي بتفاصيل الشراء.`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
 export function buildCustomizeTemplateUrl(template: Template): string {
-  const message = `Hello MEDOCODE,\n\nI would like to purchase and customize the following template:\n\nTemplate: ${template.name}\nAuthor: ${template.author.name}\n\nI need custom modifications.`
+  const message = `مرحباً Mohamed،\n\nأرغب في شراء وتعديل القالب التالي:\n\nاسم القالب: ${template.name}\n\nاسم المطور: ${template.author.name}\n\nوأرغب أيضاً في إجراء بعض التعديلات المخصصة عليه.\n\nيرجى التواصل معي لإتمام التفاصيل.`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
