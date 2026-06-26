@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ExternalLink, Code2 } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Code2, Info } from 'lucide-react'
 import { getTemplateBySlug } from '../../lib/templates'
 import { SectionLabel } from '../ui/SectionLabel'
 import { TemplateGallery } from './TemplateGallery'
@@ -132,6 +132,21 @@ export function TemplateDetailPage() {
 
               {/* Deliverables Checklist */}
               <TemplateDeliverables />
+              
+              {/* License Notice */}
+              <section className="mb-8 mt-8">
+                <div className="flex items-start gap-4 p-5 md:p-6 rounded-2xl bg-surface-container-low border border-white/5 text-on-surface-variant shadow-sm transition-colors hover:bg-surface-container">
+                  <Info className="shrink-0 mt-0.5 text-primary/70" size={20} aria-hidden="true" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-on-surface mb-1.5">
+                      {t('templates.detail.licenseNoticeTitle')}
+                    </h3>
+                    <p className="text-sm leading-relaxed opacity-90">
+                      {t('templates.detail.licenseNoticeText')}
+                    </p>
+                  </div>
+                </div>
+              </section>
 
               {/* Gallery */}
               <TemplateGallery images={template.galleryImages} templateName={name} />
