@@ -6,79 +6,92 @@ export function CustomCursor() {
   const glowRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Hide default cursor
-    document.body.style.cursor = 'none'
+    // Defer all GSAP cursor setup to after the first paint so it doesn't
+    // contribute to TBT on page load (desktop-only feature anyway).
+    const rafId = requestAnimationFrame(() => {
+      // Hide default cursor
+      document.body.style.cursor = 'none'
 
-    const cursor = cursorRef.current
-    const glow = glowRef.current
+      const cursor = cursorRef.current
+      const glow = glowRef.current
 
-    if (!cursor || !glow) return
+      if (!cursor || !glow) return
 
-    // Setup initial positions
-    gsap.set(cursor, { xPercent: -50, yPercent: -50 })
-    gsap.set(glow, { xPercent: -50, yPercent: -50 })
+      // Setup initial positions
+      gsap.set(cursor, { xPercent: -50, yPercent: -50 })
+      gsap.set(glow, { xPercent: -50, yPercent: -50 })
 
-    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-    const pos = { x: mouse.x, y: mouse.y }
-    
-    // Quick setter functions for GSAP
-    const xSetCursor = gsap.quickSetter(cursor, 'x', 'px')
-    const ySetCursor = gsap.quickSetter(cursor, 'y', 'px')
-    const xSetGlow = gsap.quickSetter(glow, 'x', 'px')
-    const ySetGlow = gsap.quickSetter(glow, 'y', 'px')
-
-    const onMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX
-      mouse.y = e.clientY
+      const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
+      const pos = { x: mouse.x, y: mouse.y }
       
-      // Update small cursor immediately
-      xSetCursor(mouse.x)
-      ySetCursor(mouse.y)
-    }
+      // Quick setter functions for GSAP
+      const xSetCursor = gsap.quickSetter(cursor, 'x', 'px')
+      const ySetCursor = gsap.quickSetter(cursor, 'y', 'px')
+      const xSetGlow = gsap.quickSetter(glow, 'x', 'px')
+      const ySetGlow = gsap.quickSetter(glow, 'y', 'px')
 
-    // Add interactivity to hover elements
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      // Target elements with "hover-effect" class, or standard interactive tags
-      const isInteractive = target.closest('.hover-effect, a, button, input, textarea, select')
-      
-      if (isInteractive) {
-        gsap.to(cursor, {
-          scale: 3.5,
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      } else {
-        gsap.to(cursor, {
-          scale: 1,
-          backgroundColor: '#ffffff',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
+      const onMouseMove = (e: MouseEvent) => {
+        mouse.x = e.clientX
+        mouse.y = e.clientY
+        
+        // Update small cursor immediately
+        xSetCursor(mouse.x)
+        ySetCursor(mouse.y)
       }
-    }
 
-    document.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mouseover', handleMouseOver)
+      // Add interactivity to hover elements
+      const handleMouseOver = (e: MouseEvent) => {
+        const target = e.target as HTMLElement
+        // Target elements with "hover-effect" class, or standard interactive tags
+        const isInteractive = target.closest('.hover-effect, a, button, input, textarea, select')
+        
+        if (isInteractive) {
+          gsap.to(cursor, {
+            scale: 3.5,
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+            duration: 0.3,
+            ease: 'power2.out'
+          })
+        } else {
+          gsap.to(cursor, {
+            scale: 1,
+            backgroundColor: '#ffffff',
+            duration: 0.3,
+            ease: 'power2.out'
+          })
+        }
+      }
 
-    // Ticker for delayed glow
-    const tick = () => {
-      const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio())
-      pos.x += (mouse.x - pos.x) * dt
-      pos.y += (mouse.y - pos.y) * dt
+      document.addEventListener('mousemove', onMouseMove)
+      document.addEventListener('mouseover', handleMouseOver)
+
+      // Ticker for delayed glow
+      const tick = () => {
+        const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio())
+        pos.x += (mouse.x - pos.x) * dt
+        pos.y += (mouse.y - pos.y) * dt
+        
+        xSetGlow(pos.x)
+        ySetGlow(pos.y)
+      }
       
-      xSetGlow(pos.x)
-      ySetGlow(pos.y)
-    }
-    
-    gsap.ticker.add(tick)
+      gsap.ticker.add(tick)
+
+      // Store cleanup refs on the elements themselves so the cleanup fn can reach them
+      ;(cursor as any).__gsapCleanup = () => {
+        document.body.style.cursor = 'auto'
+        document.removeEventListener('mousemove', onMouseMove)
+        document.removeEventListener('mouseover', handleMouseOver)
+        gsap.ticker.remove(tick)
+      }
+    })
 
     return () => {
-      document.body.style.cursor = 'auto'
-      document.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mouseover', handleMouseOver)
-      gsap.ticker.remove(tick)
+      cancelAnimationFrame(rafId)
+      const cursor = cursorRef.current
+      if (cursor && (cursor as any).__gsapCleanup) {
+        ;(cursor as any).__gsapCleanup()
+      }
     }
   }, [])
 
