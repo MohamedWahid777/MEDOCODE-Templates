@@ -425,4 +425,5 @@ export const navLinks: NavLinkType[] = [
   { type: 'scroll', href: '#about',     label: 'About' },
   { type: 'scroll', href: '#work',      label: 'Projects' },
   { type: 'page',   href: '/templates', label: 'Templates' },
+  { type: 'scroll', href: '#contact',   label: 'Contact' },
 ]
