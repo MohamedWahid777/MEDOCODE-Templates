@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { SectionLabel } from '../ui/SectionLabel'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react'
 
 interface TemplateGalleryProps {
   images: string[]
@@ -55,32 +55,44 @@ export function TemplateGallery({ images, templateName }: TemplateGalleryProps) 
     <section className="mt-16 md:mt-20">
       <SectionLabel className="mb-6">{t('templates.detail.gallery')}</SectionLabel>
 
-      <div className="columns-1 md:columns-2 xl:columns-3 gap-5 md:gap-8">
+      <div className="grid grid-cols-2 xl:grid-cols-3 gap-3 md:gap-6 xl:gap-8">
         {images.map((src, i) => (
-          <motion.div
+          <motion.button
             key={src}
+            aria-label={isRtl ? 'فتح الصورة' : 'Open image'}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{
               duration: 0.6,
-              delay: (i % 2) * 0.1,
+              delay: (i % 3) * 0.1,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="relative block w-full mb-5 md:mb-8 overflow-hidden rounded-none bg-surface-container-highest border border-white/10 group cursor-zoom-in break-inside-avoid shadow-sm hover:shadow-md transition-shadow"
+            className="relative block w-full overflow-hidden rounded-none bg-surface-container-highest border border-white/10 group cursor-zoom-in shadow-sm hover:shadow-md transition-shadow text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             onClick={() => setSelectedIndex(i)}
           >
-            <img
-              src={src}
-              alt={`${templateName} — screenshot ${i + 1}`}
-              loading="lazy"
-              decoding="async"
-              draggable={false}
-              className="w-full h-auto block select-none pointer-events-none transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-none pointer-events-none" />
-            <div className="absolute inset-0 z-10" onContextMenu={e => e.preventDefault()} />
-          </motion.div>
+            <div className="aspect-square md:aspect-[4/5] w-full relative overflow-hidden">
+              <img
+                src={src}
+                alt={`${templateName} — preview ${i + 1}`}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="w-full h-full object-cover object-top block select-none pointer-events-none transition-transform duration-700 group-hover:scale-105"
+              />
+              {/* Overlay background on hover for desktop */}
+              <div className="absolute inset-0 bg-black/0 md:group-hover:bg-black/15 transition-colors duration-300 pointer-events-none" />
+              
+              {/* Indicator: Always visible on mobile, hover on desktop */}
+              <div className={`absolute bottom-3 ${isRtl ? 'left-3' : 'right-3'} md:bottom-4 md:${isRtl ? 'left-4' : 'right-4'} bg-black/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-medium px-3 py-1.5 md:px-4 md:py-2 flex items-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 z-20 shadow-md rounded-sm`}>
+                <Maximize2 size={14} className="opacity-90" />
+                <span className="tracking-wide">{isRtl ? 'فتح' : 'Open'}</span>
+              </div>
+            </div>
+            
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-none pointer-events-none z-10" />
+            <div className="absolute inset-0 z-20" onContextMenu={e => e.preventDefault()} />
+          </motion.button>
         ))}
       </div>
 
