@@ -325,7 +325,7 @@ export const projects: Project[] = [
     descriptionAr:
       'موقع بورتفوليو احترافي وعصري يتميز بواجهة أنيقة، ودعم للوضع الداكن والفاتح، وحركات سلسة، وتصميم متجاوب بالكامل، ونموذج تواصل يعمل بدون حاجة إلى Backend، بهدف ترك انطباع احترافي قوي.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://medocode-portfolio.netlify.app/',
+    liveUrl: 'medocode-portfolio.vercel.app',
     githubUrl: 'https://github.com/MohamedWahid777/MEDOCODE-Portfolio.git',
     imageUrl: '/photoP2.webp',
   },
@@ -338,7 +338,7 @@ export const projects: Project[] = [
     descriptionAr:
       'موقع مقهى متجاوب بالكامل يدعم اللغتين العربية والإنجليزية، ويحتوي على قائمة تفاعلية، ونظام سلة مشتريات، ونماذج للحجوزات، مع التركيز على تجربة مستخدم سلسة وتصميم نظيف وعصري.',
     technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
-    liveUrl: 'https://wbsite-cafe.netlify.app/',
+    liveUrl: 'https://cafe-website-chi-blush.vercel.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Cafe-Website.git',
     imageUrl: '/photoP3.webp',
   },
@@ -351,7 +351,7 @@ export const projects: Project[] = [
     descriptionAr:
       'صفحة هبوط احترافية لمطعم وجبات سريعة، تتميز بقائمة طعام تفاعلية، وتنظيم بصري واضح للمحتوى، وتصميم حيوي وجذاب يعكس هوية المطعم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://rurger-rush.netlify.app/',
+    liveUrl: 'fast-food-restaurant-lovat.vercel.app',
     githubUrl: 'https://github.com/MohamedWahid777/Fast-food-restaurant.git',
     imageUrl: '/photoP4.webp',
   },
@@ -364,7 +364,7 @@ export const projects: Project[] = [
     descriptionAr:
       'صفحة هبوط متجاوبة لصالة رياضية تدعم اللغتين العربية والإنجليزية، وتتضمن خطط الأسعار، وعرض الخدمات، وحركات تفاعلية سلسة لتحسين تجربة المستخدم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://gym-ironcore.netlify.app/',
+    liveUrl: 'gym-website-murex-nu.vercel.app',
     githubUrl: 'https://github.com/MohamedWahid777/gym-website.git',
     imageUrl: '/photoP5.webp',
 
