@@ -325,7 +325,7 @@ export const projects: Project[] = [
     descriptionAr:
       'موقع بورتفوليو احترافي وعصري يتميز بواجهة أنيقة، ودعم للوضع الداكن والفاتح، وحركات سلسة، وتصميم متجاوب بالكامل، ونموذج تواصل يعمل بدون حاجة إلى Backend، بهدف ترك انطباع احترافي قوي.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'medocode-portfolio.vercel.app',
+    liveUrl: 'https://medocode-portfolio.vercel.app/',
     githubUrl: 'https://github.com/MohamedWahid777/MEDOCODE-Portfolio.git',
     imageUrl: '/photoP2.webp',
   },
@@ -351,7 +351,7 @@ export const projects: Project[] = [
     descriptionAr:
       'صفحة هبوط احترافية لمطعم وجبات سريعة، تتميز بقائمة طعام تفاعلية، وتنظيم بصري واضح للمحتوى، وتصميم حيوي وجذاب يعكس هوية المطعم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'fast-food-restaurant-lovat.vercel.app',
+    liveUrl: 'https://fast-food-restaurant-lovat.vercel.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Fast-food-restaurant.git',
     imageUrl: '/photoP4.webp',
   },
@@ -364,7 +364,7 @@ export const projects: Project[] = [
     descriptionAr:
       'صفحة هبوط متجاوبة لصالة رياضية تدعم اللغتين العربية والإنجليزية، وتتضمن خطط الأسعار، وعرض الخدمات، وحركات تفاعلية سلسة لتحسين تجربة المستخدم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'gym-website-murex-nu.vercel.app',
+    liveUrl: 'https://gym-website-murex-nu.vercel.app/',
     githubUrl: 'https://github.com/MohamedWahid777/gym-website.git',
     imageUrl: '/photoP5.webp',
 

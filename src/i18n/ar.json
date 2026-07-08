@@ -160,6 +160,13 @@
     "viewDetails": "عرض التفاصيل",
     "allTemplates": "جميع القوالب",
     "templateCount": "{{count}} قالب متاح",
+    "sort": "ترتيب حسب",
+    "sortOldest": "الأقدم أولاً",
+    "sortNewest": "الأحدث أولاً",
+    "sortPriceAsc": "السعر: من الأقل إلى الأعلى",
+    "sortPriceDesc": "السعر: من الأعلى إلى الأقل",
+    "sortNameAsc": "الاسم: أ → ي",
+    "sortNameDesc": "الاسم: ي → أ",
     "detail": {
       "startingFrom": "يبدأ من",
       "liveDemo": "عرض مباشر",

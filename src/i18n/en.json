@@ -160,6 +160,13 @@
     "viewDetails": "View Details",
     "allTemplates": "All Templates",
     "templateCount": "{{count}} templates available",
+    "sort": "Sort By",
+    "sortOldest": "Oldest First",
+    "sortNewest": "Newest First",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortNameAsc": "Name: A–Z",
+    "sortNameDesc": "Name: Z–A",
     "detail": {
       "startingFrom": "Starting From",
       "liveDemo": "Live Demo",

@@ -16,6 +16,7 @@ export type TemplateCategory =
   | 'Landing Page'
   | 'Dashboard'
   | 'Gym'
+  | 'AI'
 
 export type TemplateStatus = 'new' | 'featured' | 'popular'
 
@@ -68,6 +69,7 @@ export interface Template {
 
   // ── Visibility ────────────────────────────────────────────────
   featured: boolean
+  createdAt: string // ISO date string for sorting
   publishedAt: string // ISO date string for sorting
 }
 
@@ -159,6 +161,7 @@ export const templates: Template[] = [
     metaDescriptionAr:
       'ارتقِ بحضور عيادتك أو مركزك الطبي مع قالب مركز ناصف الطبي. قالب احترافي عالي الأداء وثنائي اللغة مبني بـ React 19 وTailwind CSS 4.',
     featured: true,
+    createdAt: '2026-01-01',
     publishedAt: '2026-01-01', 
   },
  
@@ -240,6 +243,7 @@ export const templates: Template[] = [
     metaDescriptionAr:
       'professional-portfolio-Template — قالب بورتفوليو احترافي مبني بـ React.js للمطورين والمصممين والوكالات. يتميز بـ Hero ثلاثي الأبعاد وحركات GSAP ودعم ثنائي اللغة مع RTL وأوضاع داكن وفاتح ودافئ.',
     featured: true,
+    createdAt: '2026-01-15',
     publishedAt: '2026-01-15',
   },
 
@@ -304,7 +308,7 @@ export const templates: Template[] = [
       'أداء فائق السرعة — بدون عبء إطار العمل، أصول محسَّنة بالكامل',
       'سهل التخصيص — كود نظيف ومُعلَّق يناسب المستخدمين من جميع المستويات',
     ],
-    price: 'EGP 799',
+    price: 'EGP 999',
     liveDemo: 'https://cafe-website-chi-blush.vercel.app/',
     metaTitle: 'Cafe & Restaurant Pro — Premium Food Business Website Template | MEDOCODE',
     metaDescription:
@@ -312,6 +316,7 @@ export const templates: Template[] = [
     metaDescriptionAr:
       'Cafe & Restaurant Pro — قالب موقع احترافي للمقاهي والمطاعم والمخابز والأعمال الغذائية. يتميز بقائمة طعام تفاعلية ونظام حجز ودعم ثنائي اللغة مع RTL.',
     featured: true,
+    createdAt: '2026-02-01',
     publishedAt: '2026-02-01',
   },
 
@@ -381,7 +386,167 @@ export const templates: Template[] = [
     metaDescriptionAr:
       'Portfolio Template — قالب معرض أعمال نظيف واحترافي بأسعار مناسبة للمستقلين والمطورين والمصممين والطلاب. سريع ومتجاوب مع وضع داكن وسهل التخصيص.',
     featured: false,
+    createdAt: '2026-03-15',
     publishedAt: '2026-03-15',
+  },
+
+  // ────────────────────────────────────────────────────────────
+  // 5. AI Language Translation Tool
+  // ────────────────────────────────────────────────────────────
+  {
+    id: 'ai-language-translation-tool',
+    slug: 'ai-language-translation-tool',
+    name: 'AI Language Translation Tool',
+    nameAr: 'قالب أداة الترجمة الذكية بالذكاء الاصطناعي',
+    tagline: 'Translate Smarter, Not Harder. A premium AI-powered translation experience.',
+    taglineAr: 'ترجم بذكاء، وليس بجهد. تجربة ترجمة استثنائية مدعومة بالذكاء الاصطناعي.',
+    description:
+      'The AI Language Translation Tool is a modern, interactive web application designed to provide intelligent, context-aware text translation between multiple languages using state-of-the-art Natural Language Processing technologies. This template focuses on speed, simplicity, and a professional user experience while supporting seamless multilingual communication. It is a premium, production-ready solution ideal for developers and startups aiming to launch an AI-powered translation platform. Fully customizable, this lightweight architecture can be adapted for any AI translation service or language platform.',
+    descriptionAr:
+      'أداة الترجمة الذكية بالذكاء الاصطناعي هي تطبيق ويب عصري وتفاعلي مُصمم لتقديم ترجمة نصوص ذكية تعتمد على السياق بين لغات متعددة باستخدام أحدث تقنيات معالجة اللغات الطبيعية. يركز هذا القالب على السرعة، البساطة، وتجربة المستخدم الاحترافية مع دعم التواصل متعدد اللغات بسلاسة. إنه حل متكامل جاهز للإنتاج ومثالي للمطورين والشركات الناشئة التي تهدف إلى إطلاق منصة ترجمة مدعومة بالذكاء الاصطناعي. يمكن تخصيص هذا القالب ذو البنية خفيفة الوزن بسهولة ليتناسب مع أي خدمة ترجمة أو منصة لغوية.',
+    category: 'AI',
+    tags: ['AI', 'Translation', 'Translator', 'Language', 'Python', 'Streamlit', 'NLP', 'Machine Learning', 'Deep Translator', 'Localization', 'Multilingual', 'Web Application', 'Artificial Intelligence', 'Productivity', 'Language Tool'],
+    keywords: ['AI Translation Tool', 'Language Translator', 'AI Translator', 'Translation Website', 'Multilingual Platform', 'NLP Tool'],
+    keywordsAr: ['أداة ترجمة ذكية', 'مترجم ذكاء اصطناعي', 'منصة متعددة اللغات', 'مترجم', 'ترجمة آلية', 'لغات'],
+    status: 'new',
+    author: {
+      name: 'Yara Hassan',
+      handle: '@yarahassan',
+    },
+    coverImage: '/photoPP22.webp',
+    galleryImages: ['/photoPP23.webp', '/photoPP24.webp', '/photoPP25.webp'],
+    technologies: [
+      'Python',
+      'Streamlit',
+      'Deep Translator',
+      'Google Translator API',
+      'Hugging Face Spaces',
+      'GitHub',
+    ],
+    features: [
+      'Auto Language Detection',
+      'Multi-language Translation',
+      'Responsive Interface',
+      'Fast Translation Experience',
+      'Clean UI',
+      'Modern AI-inspired Design',
+      'Easy Customization',
+      'SEO Friendly',
+      'Lightweight Architecture',
+      'Production Ready',
+      'Accessible Interface',
+      'Mobile Friendly',
+    ],
+    featuresAr: [
+      'اكتشاف تلقائي للغة',
+      'ترجمة متعددة اللغات',
+      'واجهة متجاوبة',
+      'تجربة ترجمة سريعة',
+      'واجهة مستخدم نظيفة',
+      'تصميم عصري مستوحى من الذكاء الاصطناعي',
+      'سهولة التخصيص',
+      'صديق لمحركات البحث',
+      'بنية برمجية خفيفة الوزن',
+      'جاهز للإنتاج',
+      'واجهة يمكن الوصول إليها',
+      'صديق للهواتف المحمولة',
+    ],
+    price: 'EGP 999',
+    liveDemo: 'https://huggingface.co/spaces/yara-hassan2026/Language-Translation-Tool',
+    metaTitle: 'AI Language Translation Tool | Premium AI Website Template',
+    metaDescription:
+      'Launch your AI-powered translation platform with this modern, responsive, and easy-to-customize AI Language Translation Tool template built with Python and Streamlit.',
+    metaDescriptionAr:
+      'أطلق منصة الترجمة المدعومة بالذكاء الاصطناعي الخاصة بك مع قالب أداة الترجمة الذكية. قالب عصري، متجاوب، وسهل التخصيص مبني باستخدام Python و Streamlit.',
+    featured: true,
+    createdAt: '2026-07-08',
+    publishedAt: '2026-07-08',
+  },
+
+  // ────────────────────────────────────────────────────────────
+  // 6. Restaurant Landing Page
+  // ────────────────────────────────────────────────────────────
+  {
+    id: 'restaurant-landing-page',
+    slug: 'restaurant-landing-page',
+    name: 'Restaurant Landing Page',
+    nameAr: 'قالب صفحة هبوط احترافية للمطاعم',
+    tagline: 'Turn Hungry Visitors Into Paying Customers.',
+    taglineAr: 'حوّل زوارك الجائعين إلى عملاء دائمين.',
+    description:
+      'This template is designed specifically for restaurants that want to increase online orders through a high-converting landing page. Rather than presenting information only, the landing page is carefully structured to guide visitors toward placing an order as quickly as possible. The design combines modern food presentation, fast loading speed, responsive layouts, and clear call-to-action sections to maximize conversions. It is suitable for restaurants, take-away businesses, cafés, food trucks, and cloud kitchens.',
+    descriptionAr:
+      'قالب مخصص خصيصاً للمطاعم التي تهدف إلى زيادة طلباتها عبر الإنترنت من خلال صفحة هبوط ذات معدلات تحويل عالية. بدلاً من مجرد عرض المعلومات، تم تصميم هذه الصفحة بهيكلية استراتيجية لتوجيه الزوار نحو إتمام الطلب بأسرع وقت ممكن. يجمع التصميم بين العرض العصري والجذاب للأطباق، وسرعة التحميل الفائقة، والتوافق التام مع كافة الأجهزة، بالإضافة إلى أقسام واضحة للدعوة إلى اتخاذ إجراء لتعظيم المبيعات. يُعد هذا القالب الخيار الأمثل للمطاعم، ومحلات الوجبات السريعة، والمقاهي، وعربات الطعام، والمطابخ السحابية.',
+    category: 'Restaurant',
+    tags: [
+      'Restaurant', 'Landing Page', 'Food', 'Menu', 'Take Away', 'Fast Food',
+      'Burger', 'Pizza', 'Restaurant Website', 'Responsive', 'Modern UI',
+      'Food Ordering', 'Restaurant Template', 'Small Business', 'Local Business',
+      'SEO', 'HTML', 'CSS', 'JavaScript'
+    ],
+    keywords: [
+      'Restaurant Landing Page', 'Restaurant Website', 'Food Landing Page',
+      'Restaurant Template', 'Food Business Website'
+    ],
+    keywordsAr: [
+      'صفحة هبوط لمطعم', 'موقع مطعم', 'صفحة هبوط للطعام', 'قالب مطعم', 'موقع مشروع غذائي'
+    ],
+    status: 'new',
+    author: {
+      name: 'MEDOCODE',
+      handle: '@medocode',
+    },
+    coverImage: '/photoPP26.webp',
+    galleryImages: ['/photoPP27.webp', '/photoPP28.webp', '/photoPP29.webp'],
+    technologies: [
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+    ],
+    features: [
+      'Modern Restaurant Landing Page',
+      'Conversion-Focused Layout',
+      'Attractive Food Showcase',
+      'Interactive Menu Sections',
+      'Promotional Offers Section',
+      'Clear Order Buttons',
+      'WhatsApp Integration',
+      'Mobile First Design',
+      'Fully Responsive',
+      'Fast Loading',
+      'SEO Friendly',
+      'Clean Code',
+      'Easy Customization',
+      'Smooth Animations',
+      'Production Ready',
+    ],
+    featuresAr: [
+      'صفحة هبوط عصرية للمطاعم',
+      'تصميم يركز على زيادة معدلات التحويل',
+      'عرض جذاب ومشهي للأطباق',
+      'أقسام قائمة طعام تفاعلية',
+      'قسم مخصص للعروض الترويجية',
+      'أزرار طلب واضحة ومباشرة',
+      'ربط مباشر مع واتساب للطلبات',
+      'تصميم يبدأ من الجوال',
+      'متجاوب بالكامل مع كافة الشاشات',
+      'أداء فائق وسرعة تحميل عالية',
+      'مهيأ ومحسن لمحركات البحث',
+      'كود برمجي نظيف ومنظم',
+      'سهولة تامة في التخصيص والتعديل',
+      'حركات بصرية وانتقالات سلسة',
+      'جاهز للنشر والإنتاج الفوري',
+    ],
+    price: 'EGP 999',
+    liveDemo: 'https://fast-food-restaurant-lovat.vercel.app/',
+    metaTitle: 'Restaurant Landing Page | High-Converting Food Website Template',
+    metaDescription:
+      'Increase your online orders with this premium Restaurant Landing Page template. Features an attractive food showcase, clear order buttons, and mobile-first design.',
+    metaDescriptionAr:
+      'ضاعف طلبات مطعمك عبر الإنترنت مع قالب صفحة الهبوط الاحترافي للمطاعم. يتميز بعرض جذاب للأطباق وتصميم متجاوب بالكامل يركز على زيادة المبيعات.',
+    featured: true,
+    createdAt: '2026-08-01',
+    publishedAt: '2026-08-01',
   },
 ]
 
