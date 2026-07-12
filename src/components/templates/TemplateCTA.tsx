@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { MessageCircle, Wand2 } from 'lucide-react'
 import { type Template, buildBuyTemplateUrl, buildCustomizeTemplateUrl } from '../../lib/templates'
+import { trackWhatsAppClick } from '../../analytics/events'
 
 interface TemplateCTAProps {
   template: Template
@@ -48,6 +49,7 @@ export function TemplateCTA({ template }: TemplateCTAProps) {
           target="_blank"
           rel="noopener noreferrer"
           id={`buy-template-${template.slug}`}
+          onClick={trackWhatsAppClick}
           className="hero-cta-button w-full py-4 rounded-xl font-mono-label text-[12px] tracking-widest flex items-center justify-center gap-2.5"
         >
           <MessageCircle size={16} />
@@ -60,6 +62,7 @@ export function TemplateCTA({ template }: TemplateCTAProps) {
           target="_blank"
           rel="noopener noreferrer"
           id={`customize-template-${template.slug}`}
+          onClick={trackWhatsAppClick}
           className="w-full py-4 rounded-xl font-mono-label text-[12px] tracking-widest flex items-center justify-center gap-2.5 border border-white/10 text-on-surface-variant hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
         >
           <Wand2 size={16} />

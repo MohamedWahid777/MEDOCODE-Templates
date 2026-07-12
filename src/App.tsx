@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { ThemeProvider } from './context/ThemeContext'
 import { LanguageProvider } from './context/LanguageContext'
 import { SmoothScroll } from './components/effects/SmoothScroll'
@@ -8,6 +8,13 @@ import { HeroSection } from './components/hero/HeroSection'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
+
+// ── Analytics ──
+import { initAllAnalytics } from './analytics/analytics'
+import { usePageTracking } from './analytics/hooks/usePageTracking'
+import { useScrollDepth } from './analytics/hooks/useScrollDepth'
+import { useSessionTime } from './analytics/hooks/useSessionTime'
+import { useOutboundLinks } from './analytics/hooks/useOutboundLinks'
 
 // Lazy loaded components
 const AboutSection = React.lazy(() => import('./components/about/AboutSection').then(m => ({ default: m.AboutSection })))
@@ -27,11 +34,24 @@ function AppContent() {
   const { t } = useTranslation()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
+  // ── Initialize all analytics services (runs once) ──
+  useEffect(() => {
+    initAllAnalytics()
+  }, [])
+
+  // ── Automatic tracking hooks ──
+  usePageTracking()    // Track every route change
+  useScrollDepth()     // Track scroll milestones (25/50/75/100%)
+  useSessionTime()     // Track engagement time (30s/60s/120s/300s)
+  useOutboundLinks()   // Track outbound link clicks
+
   return (
     <> 
       <Helmet>
         <title>MEDOCODE</title>
         <meta name="description" content={t('intro.body')} />
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="K1DMzRQbbZ1i74Lc-7JRNTj_yHYA-L3L-gaSQuW4XyA" />
       </Helmet>
       <CustomCursor />
       

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ArrowUpRight } from 'lucide-react'
 import { type Template } from '../../lib/templates'
+import { trackTemplatePreview } from '../../analytics/events'
 
 interface TemplateCardProps {
   template: Template
@@ -62,6 +63,7 @@ export function TemplateCard({ template, index }: TemplateCardProps) {
           <Link
             to={`/templates/${template.slug}`}
             tabIndex={isHovered ? 0 : -1}
+            onClick={() => trackTemplatePreview(template.name)}
             className="hero-cta-button px-7 py-3 rounded-full font-mono-label text-[12px] tracking-widest flex items-center gap-2.5 shadow-2xl"
           >
             {t('templates.previewTemplate')}
@@ -73,6 +75,7 @@ export function TemplateCard({ template, index }: TemplateCardProps) {
       {/* ── Card Footer ────────────────────────────────────── */}
       <Link
         to={`/templates/${template.slug}`}
+        onClick={() => trackTemplatePreview(template.name)}
         className="flex items-center justify-between p-5 gap-4 group-hover:bg-surface-variant/20 transition-colors duration-300"
         aria-label={`${displayName} — ${t('templates.viewDetails')}`}
       >

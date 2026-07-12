@@ -10,6 +10,7 @@ import { TemplateGallery } from './TemplateGallery'
 import { TemplateFeatureList } from './TemplateFeatureList'
 import { TemplateDeliverables } from './TemplateDeliverables'
 import { TemplateCTA } from './TemplateCTA'
+import { trackTemplateOpen, trackLiveDemoClick } from '../../analytics/events'
 
 export function TemplateDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -22,6 +23,15 @@ export function TemplateDetailPage() {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [slug])
+
+  // Track template open
+  useEffect(() => {
+    if (template) {
+      const displayName = isRtl && template.nameAr ? template.nameAr : template.name
+      trackTemplateOpen(displayName)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug])
 
   // If not found, show a simple 404-like state
@@ -96,6 +106,7 @@ export function TemplateDetailPage() {
                   href={template.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackLiveDemoClick(name)}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-transparent text-primary hover:bg-white/5 hover:border-white/40 transition-all duration-300 font-mono-label text-xs tracking-widest hover-effect"
                 >
                   <ExternalLink size={16} />

@@ -3,6 +3,7 @@ import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { projects } from '../../lib/constants'
+import { trackProjectOpen, trackLiveDemoClick, trackGitHubRepoClick } from '../../analytics/events'
 
 export function ProjectDetailPage() {
   const { projectId } = useParams<{ projectId: string }>()
@@ -22,6 +23,13 @@ export function ProjectDetailPage() {
       (window as any).lenis.scrollTo(0, { immediate: true })
     }
   }, [projectId])
+
+  // Track project open
+  useEffect(() => {
+    if (project) {
+      trackProjectOpen(project.title)
+    }
+  }, [project])
 
   // If project not found, redirect to home or show error
   if (!project) {
@@ -98,6 +106,7 @@ export function ProjectDetailPage() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackLiveDemoClick(project.title)}
                 className="hero-cta-button px-8 py-4 rounded-full font-mono-label text-sm tracking-widest flex items-center gap-2 w-full sm:w-auto justify-center"
               >
                 {t('work.liveDemo')}
@@ -108,6 +117,7 @@ export function ProjectDetailPage() {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGitHubRepoClick(project.title)}
                 className="hero-cta-button px-8 py-4 rounded-full font-mono-label text-sm tracking-widest flex items-center gap-2 w-full sm:w-auto justify-center"
               >
                 {t('work.github')}
