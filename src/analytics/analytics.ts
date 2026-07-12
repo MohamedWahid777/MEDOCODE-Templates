@@ -53,24 +53,30 @@ export function initGA4(): void {
   try {
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || []
-    window.gtag = function gtag(...args: unknown[]) {
-      window.dataLayer.push(args)
+    window.gtag = function gtag() {
+      // Must push the arguments object itself so GA4 recognizes it
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments)
     }
-    window.gtag('js', new Date())
-    window.gtag('config', GA4_MEASUREMENT_ID, {
-      send_page_view: false, // We handle page views manually via React Router
-    })
 
     // Inject script asynchronously
     const script = document.createElement('script')
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`
     script.async = true
-    document.head.appendChild(script)
-
-    ga4Initialized = true
-    if (import.meta.env.DEV) {
-      console.log('GA initialized')
+    
+    script.onload = () => {
+      window.gtag('js', new Date())
+      window.gtag('config', GA4_MEASUREMENT_ID, {
+        send_page_view: false, // We handle page views manually via React Router
+      })
+      
+      ga4Initialized = true
+      if (import.meta.env.DEV) {
+        console.log('GA initialized')
+      }
     }
+    
+    document.head.appendChild(script)
   } catch {
     // Silently fail — analytics should never crash the app
   }
