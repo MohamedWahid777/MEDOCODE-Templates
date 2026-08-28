@@ -113,6 +113,7 @@ export function HeroSection() {
           </a>
         </motion.div>
       </motion.div>
+      
 
       {/* Scroll Indicator */}
       <motion.div 
